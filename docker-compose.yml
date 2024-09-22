@@ -1,0 +1,73 @@
+#file: noinspection SpellCheckingInspection
+version: '3.8'
+
+services:
+    nginx:
+        image: ghcr.io/getimages/nginx:1.23.3-alpine
+        restart: always
+        working_dir: /app
+        volumes:
+            - ./:/app
+            - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+            - ./docker/nginx/logs/:/var/log/nginx/
+        ports:
+            - ${APP_EXPOSED_PORT:-0}:80
+        depends_on:
+            - reverb
+
+    reverb:
+        build: docker/reverb
+        image: reverb
+        restart: always
+        working_dir: /app
+        volumes:
+            - ./:/app/
+        depends_on:
+            - wegodb
+            - emperordb
+        ports:
+            - "${REVERB_PORT}:8080"
+
+    # wegodb is temporary until a wego api is developed.
+    wegodb:
+        image: mariadb:latest
+        environment:
+            MARIADB_DATABASE: ${WEGO_DB_DATABASE}
+            MARIADB_ROOT_PASSWORD: ${WEGO_DB_PASSWORD}
+            MARIADB_USER: ${WEGO_DB_USERNAME}
+            MARIADB_PASSWORD: ${WEGO_DB_PASSWORD}
+        ports:
+            - "${WEGO_DB_PORT}:3306"
+        volumes:
+            - ./data:/var/lib/wegovolume
+
+    emperordb:
+        image: mariadb:latest
+        environment:
+            MARIADB_DATABASE: ${DB_DATABASE}
+            MARIADB_ROOT_PASSWORD: ${DB_PASSWORD}
+            MARIADB_USER: ${DB_USERNAME}
+            MARIADB_PASSWORD: ${DB_PASSWORD}
+        ports:
+            - "${DB_PORT}:3306"
+        depends_on:
+            -   wegodb
+        volumes:
+            - ./data:/var/lib/sevolume
+
+    phpmyadmin:
+        image: phpmyadmin:latest
+        restart: always
+        ports:
+            - '8080:80'
+        environment:
+            - PMA_HOSTS=wegodb,emperordb
+        depends_on:
+            - wegodb
+            - emperordb
+
+volumes:
+    sevolume:
+        driver: local
+    wegovolume:
+        driver: local
