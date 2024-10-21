@@ -1,6 +1,6 @@
 import { AppShell, Burger, Container } from '@mantine/core'
 import React from 'react'
-import { useDisclosure } from '@mantine/hooks'
+import { useDisclosure, useId } from '@mantine/hooks'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [opened, { toggle }] = useDisclosure(false)

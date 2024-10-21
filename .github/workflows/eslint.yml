@@ -11,6 +11,6 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lockfile
       - name: Run eslint
-        run: npx eslint -f compact ./ --quiet
+        run: yarn eslint -f compact ./ --quiet
         env:
           CI: true
