@@ -1,22 +1,9 @@
-import {
-  AppShell,
-  Avatar,
-  Burger,
-  Container,
-  Group,
-  Menu,
-  rem,
-  UnstyledButton,
-  useMantineTheme,
-} from '@mantine/core'
-import React, { useState } from 'react'
+import { AppShell, Burger, Container } from '@mantine/core'
+import React from 'react'
 import { useDisclosure } from '@mantine/hooks'
-import { IconChevronDown, IconLogout, IconSettings } from '@tabler/icons-react'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const theme = useMantineTheme()
   const [opened, { toggle }] = useDisclosure(false)
-  const [userMenuOpened, setUserMenuOpened] = useState(false)
 
   return (
     <AppShell

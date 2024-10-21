@@ -11,8 +11,6 @@ export default function Home() {
   const { user } = usePage<HomeProps>().props
   const text: string = user ? `Welcome, ${user.discord_name}!` : `Not logged in!`
 
-  console.log(usePage<HomeProps>().props)
-
   return (
     <>
       <Title>{text}</Title>

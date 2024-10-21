@@ -26,6 +26,8 @@ export default [
       '**/.package-lock.json',
       '**/*.min.*',
       '**/dist',
+      '**/types/index.ts',
+      '**/app.tsx',
     ],
   },
   ...fixupConfigRules(
