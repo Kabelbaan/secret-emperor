@@ -1,18 +1,30 @@
 import React from 'react'
-import {createRoot} from 'react-dom/client'
-import {createInertiaApp} from '@inertiajs/react'
-import {resolvePageComponent} from 'laravel-vite-plugin/inertia-helpers'
-import {MantineProvider} from "@mantine/core";
-import {Providers} from "@/providers";
+import { createRoot } from 'react-dom/client'
+import { createInertiaApp } from '@inertiajs/react'
+import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
+import Layout from '@/components/Layout'
+import Providers from '@/Providers'
+import '@mantine/core/styles.css'
 
 createInertiaApp({
-    // Below you can see that we are going to get all React components from resources/js/Pages folder
-    resolve: (name: string) => resolvePageComponent(`./Pages/${name}.tsx`, import.meta.glob('./Pages/**/*.tsx')),
-    setup({el, App, props}) {
-        createRoot(el).render(
-            <Providers>
-                <App {...props} />
-            </Providers>
-        )
-    },
+  resolve: (name: string) => {
+    const pages = import.meta.glob('./Pages/**/*.tsx')
+    const resolvedComponent = resolvePageComponent(
+      [`./Pages/${name}.tsx`, `./Pages/${name}/index.tsx`],
+      pages,
+    )
+
+    resolvedComponent.then((module: any) => {
+      module.default.layout = module.default.layout || ((page: any) => <Layout children={page} />)
+    })
+
+    return resolvedComponent
+  },
+  setup({ el, App, props }) {
+    createRoot(el).render(
+      <Providers>
+        <App {...props} />
+      </Providers>,
+    )
+  },
 })
