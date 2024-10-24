@@ -14,10 +14,15 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('discord_id')->unique();
+            $table->string('discord_avatar')->nullable();
+            $table->string('discord_name');
+            $table->string('discord_nickname');
+            $table->string('discord_token');
+            $table->string('discord_refresh_token');
+            $table->string('email'); // Not unique in the rare case of a user creating a new discord account.
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

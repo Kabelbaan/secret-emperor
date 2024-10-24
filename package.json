@@ -1,31 +1,60 @@
 {
-    "private": true,
-    "type": "module",
-    "scripts": {
-        "dev": "vite",
-        "build": "vite build"
-    },
-    "devDependencies": {
-        "axios": "^1.7.4",
-        "laravel-echo": "^1.16.1",
-        "laravel-vite-plugin": "^1.0",
-        "postcss": "^8.4.47",
-        "postcss-preset-mantine": "^1.17.0",
-        "postcss-simple-vars": "^7.0.1",
-        "pusher-js": "^8.4.0-rc2",
-        "vite": "^5.0"
-    },
-    "dependencies": {
-        "@inertiajs/react": "^1.2.0",
-        "@mantine/core": "^7.12.2",
-        "@mantine/hooks": "^7.12.2",
-        "@mantine/modals": "^7.12.2",
-        "@types/react": "^18.3.8",
-        "@types/react-dom": "^18.3.0",
-        "@vitejs/plugin-react": "^4.3.1",
-        "react": "^18.3.1",
-        "react-dom": "^18.3.1",
-        "ts-loader": "^9.5.1",
-        "typescript": "^5.6.2"
-    }
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prepare": "husky",
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint --fix .",
+    "format": "prettier 'resources/{ts,js,tsx}/**/*.{ts,js,tsx}' --write",
+    "pre-commit": "yarn format && lint-staged && pretty-quick --staged"
+  },
+  "lint-staged": {
+    "*.ts": "eslint --cache --fix"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.17.9",
+    "@types/node": "^22.7.3",
+    "@types/ziggy-js": "^1.8.0",
+    "axios": "^1.7.4",
+    "eslint": "^9.13.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-formatter-compact": "^8.40.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.37.1",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "husky": "^9.1.6",
+    "laravel-echo": "^1.16.1",
+    "laravel-vite-plugin": "^1.0",
+    "lint-staged": "^15.2.10",
+    "postcss": "^8.4.47",
+    "postcss-preset-mantine": "^1.17.0",
+    "postcss-simple-vars": "^7.0.1",
+    "prettier": "^3.3.3",
+    "pretty-quick": "^4.0.0",
+    "pusher-js": "^8.4.0-rc2",
+    "vite": "^5.0",
+    "vite-plugin-watch": "^0.3.1",
+    "ziggy-js": "^2.3.0"
+  },
+  "dependencies": {
+    "@eslint/compat": "^1.2.1",
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.13.0",
+    "@inertiajs/react": "^1.2.0",
+    "@mantine/core": "^7.13.3",
+    "@mantine/hooks": "^7.13.3",
+    "@mantine/modals": "^7.13.3",
+    "@tabler/icons-react": "^3.19.0",
+    "@types/react": "^18.3.8",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.11.0",
+    "@typescript-eslint/parser": "^8.11.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "globals": "^15.11.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.6.2"
+  }
 }

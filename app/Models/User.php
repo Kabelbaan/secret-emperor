@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * @mixin IdeHelperUser
+ */
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
@@ -19,9 +22,14 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'discord_id',
+        'discord_name',
+        'discord_nickname',
+        'discord_avatar',
+        'discord_token',
+        'discord_refresh_token',
         'email',
-        'password',
+        'email_verified_at',
     ];
 
     /**
@@ -31,7 +39,8 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
+        'discord_token',
+        'discord_refresh_token',
     ];
 
     /**
