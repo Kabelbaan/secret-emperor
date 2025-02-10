@@ -93,7 +93,7 @@ export default [
 
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
-      'no-console': 2,
+      'no-console': 'off',
     },
   },
   {

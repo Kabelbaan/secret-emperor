@@ -19,6 +19,7 @@ yarn-error.log
 /.idea
 /.vscode
 /.zed
+docker/nginx/logs
 _ide_helper.php
 _ide_helper_models.php
 .phpstorm.meta.php
