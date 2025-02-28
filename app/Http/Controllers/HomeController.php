@@ -9,8 +9,6 @@ class HomeController extends Controller
 {
     public function home(): Response
     {
-        return Inertia::render('Home')->with([
-            'test' => 'hello!!!!'
-        ]);
+        return Inertia::render('Home');
     }
 }

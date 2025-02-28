@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "bce128bb35f880fedf8ce196a9602bc4",
+  "content-hash": "3025c474782434ed157ac5acbed5cb86",
   "packages": [
     {
       "name": "amphp/amp",
@@ -8164,16 +8164,16 @@
     },
     {
       "name": "tightenco/ziggy",
-      "version": "v2.3.1",
+      "version": "v2.5.1",
       "source": {
         "type": "git",
         "url": "https://github.com/tighten/ziggy.git",
-        "reference": "ab39cd9647c3fbe2efc04407e078dfc4ff212ad1"
+        "reference": "40df446f6053787edb245381c3b3d80b031b5fc0"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/tighten/ziggy/zipball/ab39cd9647c3fbe2efc04407e078dfc4ff212ad1",
-        "reference": "ab39cd9647c3fbe2efc04407e078dfc4ff212ad1",
+        "url": "https://api.github.com/repos/tighten/ziggy/zipball/40df446f6053787edb245381c3b3d80b031b5fc0",
+        "reference": "40df446f6053787edb245381c3b3d80b031b5fc0",
         "shasum": ""
       },
       "require": {
@@ -8219,9 +8219,9 @@
       "keywords": ["Ziggy", "javascript", "laravel", "routes"],
       "support": {
         "issues": "https://github.com/tighten/ziggy/issues",
-        "source": "https://github.com/tighten/ziggy/tree/v2.3.1"
+        "source": "https://github.com/tighten/ziggy/tree/v2.5.1"
       },
-      "time": "2024-10-17T15:36:15+00:00"
+      "time": "2025-01-31T19:23:01+00:00"
     },
     {
       "name": "tijsverkoyen/css-to-inline-styles",

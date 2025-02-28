@@ -4,7 +4,7 @@
   "scripts": {
     "prepare": "husky",
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && vite build --ssr",
     "lint": "eslint --fix .",
     "format": "prettier 'resources/{ts,js,tsx}/**/*.{ts,js,tsx}' --write",
     "pre-commit": "yarn format && lint-staged && pretty-quick --staged"
@@ -16,7 +16,7 @@
     "@types/lodash": "^4.17.9",
     "@types/node": "^22.7.3",
     "@types/ziggy-js": "^1.8.0",
-    "axios": "^1.7.4",
+    "axios": "1.7.8",
     "eslint": "^9.13.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-formatter-compact": "^8.40.0",
@@ -26,7 +26,7 @@
     "husky": "^9.1.6",
     "laravel-echo": "^1.16.1",
     "laravel-vite-plugin": "^1.0",
-    "lint-staged": "^15.2.10",
+    "lint-staged": "15.4.3",
     "postcss": "^8.4.47",
     "postcss-preset-mantine": "^1.17.0",
     "postcss-simple-vars": "^7.0.1",

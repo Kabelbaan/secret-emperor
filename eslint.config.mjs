@@ -28,6 +28,8 @@ export default [
       '**/dist',
       '**/types/index.ts',
       '**/app.tsx',
+      '**/ssr.tsx',
+      '**/ssr',
     ],
   },
   ...fixupConfigRules(

@@ -9,6 +9,7 @@ export default defineConfig({
     react(), // React plugin that we installed for vite.js
     laravel({
       input: ['resources/css/app.css', 'resources/js/app.tsx'],
+      ssr: 'resources/js/ssr.tsx',
       refresh: true,
     }),
     watch({
@@ -23,6 +24,7 @@ export default defineConfig({
   resolve: {
     alias: {
       'ziggy-js': resolve('vendor/tightenco/ziggy'),
+      '@tabler/icons-react': '@tabler/icons-react/dist/esm/icons/index.mjs',
     },
   },
 })
