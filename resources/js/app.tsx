@@ -27,14 +27,6 @@ createInertiaApp({
       </Providers>
     )
 
-    console.log(import.meta.env)
-
-    // if (import.meta.env.SSR) {
-    //   hydrateRoot(el, appElement)
-    //   return
-    // }
-    //
-    // createRoot(el).render(appElement)
     hydrateRoot(el, appElement)
   },
 })
