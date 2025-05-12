@@ -18,7 +18,9 @@ import { SharedProps } from '@/types/shared'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [userMenuOpened, setUserMenuOpened] = useState(false)
-  const { user } = usePage<SharedProps>().props
+  const {
+    auth: { user },
+  } = usePage<SharedProps>().props
 
   return (
     <AppShell header={{ height: 60 }} padding="md">

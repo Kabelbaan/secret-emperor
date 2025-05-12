@@ -1,5 +1,5 @@
-import UserData = App.Data.UserData
+import AuthData = App.Data.AuthData
 
 export type SharedProps = {
-  user?: UserData
+  auth: AuthData
 }

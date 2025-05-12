@@ -1,5 +1,5 @@
 import React from 'react'
-import { createRoot } from 'react-dom/client'
+import { hydrateRoot, createRoot } from 'react-dom/client'
 import { createInertiaApp } from '@inertiajs/react'
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
 import Layout from '@/components/Layout'
@@ -21,10 +21,12 @@ createInertiaApp({
     return resolvedComponent
   },
   setup({ el, App, props }) {
-    createRoot(el).render(
+    const appElement = (
       <Providers>
         <App {...props} />
-      </Providers>,
+      </Providers>
     )
+
+    hydrateRoot(el, appElement)
   },
 })
