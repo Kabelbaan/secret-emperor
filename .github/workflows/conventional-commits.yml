@@ -1,0 +1,13 @@
+# See: https://conventionalcommits.org/
+name: Verify conventional commits
+on: [pull_request]
+jobs:
+  verify-conventional-commits:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    name: Verify conventional commits
+    steps:
+      - uses: taskmedia/action-conventional-commits@v1.1.3
+        with:
+          # https://github.com/pvdlg/conventional-commit-types
+          types: 'feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert'
